@@ -9,3 +9,17 @@ Create VPC with NAT Gateway _(VPC, Internet Gateway, Public & Private Subents, S
 Create an IAM User | [Click Here](iam-user)
 Create an IAM Role | [Click Here](iam-role)
 Create an EKS Cluster with EC2 Node group | [Click Here](eks-cluster)
+
+## Installation
+
+```bash
+terraform init
+```
+
+```bash
+terraform plan
+```
+
+```bash
+terraform apply
+```
