@@ -2,6 +2,6 @@
 .terraform/
 *.pub
 *.pem
-
+*.zip
 *.tfstate
 *.tfstate.backup
