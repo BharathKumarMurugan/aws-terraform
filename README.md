@@ -10,8 +10,9 @@ Create an IAM User | [Click Here](iam-user)
 Create an IAM Role | [Click Here](iam-role)
 Create an EKS Cluster with EC2 Node group | [Click Here](eks-cluster)
 Dynamically allocate CIDR block to Subnets | [Click Here](cidrsubnet-function)
-Provision resource *_if_ Prod* environment *_else_* do not provision | [Click Here](conditional-operator)
+Provision resource **_if_ Prod** environment **_else_** do not provision | [Click Here](conditional-operator)
 Dynamically create number of Subnets based on the number of AZs in the given region | [Click Here](dynamic-azs)
+Create Lambda Function and trigger email using AWS SES | [Click Here](create-lambda-function)
 
 
 ## Installation
@@ -34,4 +35,4 @@ terraform apply
 ```bash
 terraform destroy
 ```
-* *Terminates resources* defined in the configuration files.
+* **Terminates resources** defined in the configuration files.
