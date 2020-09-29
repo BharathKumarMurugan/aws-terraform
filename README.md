@@ -14,6 +14,7 @@ Provision resource ***if Prod*** environment ***else*** do not provision | [Clic
 Dynamically create number of Subnets based on the number of AZs in the given region | [Click Here](dynamic-azs)
 Create Lambda Function and trigger email using AWS SES | [Click Here](create-lambda-function)
 Create VPC on different environments using module | [Click Here](create-vpc-with-modules)
+Create a GitHub Repository | [Click Here](create-github-repo)
 
 
 ## Installation

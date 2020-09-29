@@ -1,5 +1,5 @@
-variable "GITHUB_TOKEN" {}
-variable "GITHUB_OWNER" {}
+variable "GITHUB_TOKEN" {} # export an environment variable TF_VAR_GITHUB_TOKEN
+variable "GITHUB_OWNER" {} # export an environment variable TF_VAR_GITHUB_OWNER
 variable "repo_name"{
     default = "terraform-github-integration-repo"
 }
