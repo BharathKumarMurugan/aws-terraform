@@ -1,0 +1,23 @@
+[
+    {
+        "variable":{
+            "ami":{
+                "default":"ami-1234"
+            }
+        }
+    },
+    {
+        "variable":{
+            "subnet_id":{
+                "default":"subnet-1234"
+            }
+        }
+    },
+    {
+        "variable":{
+            "keyname":{
+                "default":"key-name"
+            }
+        }
+    }
+]
