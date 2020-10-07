@@ -23,11 +23,24 @@ module "myEC2" {
   keyname       = "thor"
   instance_type = "t2.micro"
   # subnet_ids = ["subnet-016ed1656771f9387","subnet-05a85f9384d55fb5f"]
-  subnet_ids         = [module.myVPC.subnet_ids]
+  subnet_ids         = [module.myVPC.subnet_ids[0]]
   security_group_ids = [module.myVPC.security_group_ids]
   env                = "dev"
 
   depends_on = [module.myVPC]
+}
+
+# Application Load Balancer
+module "myALB" {
+  source             = "../modules/alb"
+  alb_name           = "ALB-dev"
+  security_group_ids = [module.myVPC.security_group_ids]
+  subnet_ids         = [module.myVPC.subnet_ids]
+  target_grp_name    = "ALB-target-grp-dev"
+  vpc_id             = module.myVPC.vpc_id
+  env                = "dev"
+
+  depends_on = [module.myVPC, module.myEC2]
 }
 
 output "subnetID_output_from_module" {

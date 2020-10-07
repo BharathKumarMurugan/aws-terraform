@@ -5,7 +5,7 @@ resource "aws_lb" "exampleALB" {
   security_groups    = var.security_group_ids
   subnets            = var.subnet_ids
 
-  enable_deletion_protection = true
+  enable_deletion_protection = false
 
   tags = {
     Environment = var.env
