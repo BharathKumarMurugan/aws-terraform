@@ -11,8 +11,8 @@ module "myVPC" {
   sec_grp_name        = "ALB_secgrp_dev"
   sec_grp_description = "ALB Security Group for dev env"
   vpc_cidr            = "10.10.10.0/24"
-  subnet_cidr         = "10.10.10.0/28"
-  azs                 = "ap-south-1a"
+  subnet_cidr         = ["10.10.10.0/28", "10.10.10.16/28"]
+  azs                 = ["ap-south-1a", "ap-south-1b"]
   env                 = "dev"
 }
 
@@ -23,19 +23,19 @@ module "myEC2" {
   keyname       = "thor"
   instance_type = "t2.micro"
   # subnet_ids = ["subnet-016ed1656771f9387","subnet-05a85f9384d55fb5f"]
-  subnet_ids = module.myVPC.subnet_id
+  subnet_ids         = [module.myVPC.subnet_ids]
   security_group_ids = [module.myVPC.security_group_ids]
-  env        = "dev"
+  env                = "dev"
 
   depends_on = [module.myVPC]
 }
 
 output "subnetID_output_from_module" {
-  value = module.myVPC.subnet_id
+  value = module.myVPC.*.subnet_ids
 }
 output "PublicIP_output_from_module" {
-  value = module.myEC2.ins-pub-ip
+  value = module.myEC2.*.ins_pub_ip
 }
 output "SecGrpID_output_from_module" {
-  value = module.myVPC.security_group_ids
+  value = module.myVPC.*.security_group_ids
 }

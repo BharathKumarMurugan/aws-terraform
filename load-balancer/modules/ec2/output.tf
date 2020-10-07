@@ -12,9 +12,9 @@
 #   )
 #   description = "Map of Instances to Private IPs"
 # }
-output "ins-pub-ip" {
-  value = aws_instance.example.public_ip
+output "ins_pub_ip" {
+  value = aws_instance.example.*.public_ip
 }
-output "ins-pvt-ip" {
-  value = aws_instance.example.private_ip
+output "ins_pvt_ip" {
+  value = aws_instance.example.*.private_ip
 }

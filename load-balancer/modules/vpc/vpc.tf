@@ -16,16 +16,16 @@ resource "aws_internet_gateway" "exampleIGW" {
   }
 }
 resource "aws_subnet" "exampleSubnet" {
-  vpc_id = aws_vpc.exampleVPC.id
-  # count = length(var.subnet_cidr)
-  # cidr_block = element(var.subnet_cidr, count.index)
-  # availability_zone = element(var.azs, count.index)
-  cidr_block              = var.subnet_cidr
-  availability_zone       = var.azs
+  vpc_id            = aws_vpc.exampleVPC.id
+  count             = length(var.subnet_cidr)
+  cidr_block        = element(var.subnet_cidr, count.index)
+  availability_zone = element(var.azs, count.index)
+  #   cidr_block              = var.subnet_cidr
+  #   availability_zone       = var.azs
   map_public_ip_on_launch = true
   tags = {
-    # Name        = "Subnet-${count.index + 1}"
-    Name        = "Subnet"
+    Name = "Subnet-${count.index + 1}"
+    # Name        = "Subnet"
     Environment = var.env
   }
 }
@@ -41,10 +41,10 @@ resource "aws_route_table" "exampleRT" {
   }
 }
 resource "aws_route_table_association" "exampleRTassoc" {
-  #   count          = length(var.subnet_cidr)
+  count          = length(var.subnet_cidr)
   route_table_id = aws_route_table.exampleRT.id
-  #   subnet_id      = element(aws_subnet.exampleSubnet.*.id, count.index)
-  subnet_id = aws_subnet.exampleSubnet.id
+  subnet_id      = element(aws_subnet.exampleSubnet.*.id, count.index)
+  #   subnet_id = aws_subnet.exampleSubnet.id
 }
 resource "aws_security_group" "exampleSecGrp" {
   name        = var.sec_grp_name

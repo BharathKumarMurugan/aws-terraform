@@ -1,32 +1,27 @@
-module "alb" {
-    source = "terraform-aws-modules/alb/aws"
-    version = "~>5.0"
-    
-    name = "new-alb"
+resource "aws_lb" "exampleALB" {
+  name               = var.alb_name
+  internal           = false         # making it as Internet Facing
+  load_balancer_type = "application" # Application Load Balancer
+  security_groups    = var.security_group_ids
+  subnets            = var.subnet_ids
 
-    load_balancer_type = "application"
-    vpc_id = var.vpc_id
-    subnets = ["subnet-016ed1656771f9387","subnet-05a85f9384d55fb5f"]
-   # access_logs = {
-   #     bucket = "config-bucket-356700607205"
-   # }
+  enable_deletion_protection = true
 
-    target_groups = [
-        {
-            name_prefix = "pref-"
-            backend_protocol = "HTTP"
-            backend_port = 80
-            target_type = "instance"
-        }
-    ]
-    http_tcp_listeners = [
-        {
-            port = 80
-            protocol = "HTTP"
-            target_group_index = 0
-        }
-    ]
-    tags = {
-        Environment = "dev"
-    }
+  tags = {
+    Environment = var.env
+  }
+}
+
+resource "aws_lb_target_group" "exampleALBtargetGrp" {
+  name        = var.target_grp_name
+  port        = 80
+  protocol    = "HTTP"
+  vpc_id      = var.vpc_id
+  target_type = "instance"
+}
+
+resource "aws_lb_listener" "exampleALBlistener" {
+  port              = 80
+  protocol          = "HTTP"
+  load_balancer_arn = aws_lb.exampleALB.arn
 }
