@@ -28,3 +28,10 @@ module "myEC2" {
 
   depends_on = [module.myVPC]
 }
+
+output "subnetID_output_from_module" {
+  value = module.myVPC.subnet_id
+}
+output "PublicIP_output_from_module" {
+  value = module.myEC2.ins-pub-ip
+}
