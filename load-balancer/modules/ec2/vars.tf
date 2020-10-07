@@ -1,9 +1,9 @@
-variable "ami"{}
-variable "keyname"{
-    default = "thor"
+variable "ami" {}
+variable "keyname" {
+  default = "thor"
 }
 variable "env" {
-    default = "dev"
+  default = "dev"
 }
 variable "instance_type" {}
 # variable "subnet_ids"{
@@ -15,3 +15,6 @@ variable "instance_type" {}
 
 # }
 variable "subnet_ids" {}
+variable "security_group_ids" {
+  type = list(string)
+}
