@@ -7,7 +7,7 @@ resource "aws_instance" "example" {
   vpc_security_group_ids = var.security_group_ids
   user_data              = file("~/practice/aws-terraform/load-balancer/modules/ec2/install_apache.sh")
   tags = {
-    Name        = "ALB_ins"
+    Name        = "ALB_ins-${count.index + 1}"
     Environment = var.env
   }
 }
