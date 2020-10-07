@@ -24,7 +24,7 @@ module "myEC2" {
   instance_type = "t2.micro"
   # subnet_ids = ["subnet-016ed1656771f9387","subnet-05a85f9384d55fb5f"]
   subnet_ids = module.myVPC.subnet_id
-  security_group_ids = module.myVPC.security_group_ids
+  security_group_ids = [module.myVPC.security_group_ids]
   env        = "dev"
 
   depends_on = [module.myVPC]
@@ -35,4 +35,7 @@ output "subnetID_output_from_module" {
 }
 output "PublicIP_output_from_module" {
   value = module.myEC2.ins-pub-ip
+}
+output "SecGrpID_output_from_module" {
+  value = module.myVPC.security_group_ids
 }
