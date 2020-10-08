@@ -11,8 +11,8 @@ module "myVPC" {
   sec_grp_name        = "ALB_secgrp_${var.env}"
   sec_grp_description = "ALB Security Group for dev env"
   vpc_cidr            = var.vpc_cidr
-  subnet_cidr         = [var.subnet_cidr]
-  azs                 = [var.azs]
+  subnet_cidr         = var.subnet_cidr
+  azs                 = var.azs
   env                 = var.env
 }
 
@@ -57,6 +57,8 @@ module "myASG" {
   desired              = 1
   subnet_ids           = module.myVPC.subnet_ids
   env                  = var.env
+
+  depends_on = [module.myVPC, module.myEC2, module.myALB]
 }
 
 output "subnetID_output_from_module" {
