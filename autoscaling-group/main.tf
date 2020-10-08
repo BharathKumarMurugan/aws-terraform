@@ -52,9 +52,9 @@ module "myASG" {
   keyname              = var.keyname
   placement_grp_name   = "examplePlacement"
   autoscaling_grp_name = "example_ASG"
-  max                  = 5
-  min                  = 2
-  desired              = 2
+  max                  = 3
+  min                  = 1
+  desired              = 1
   subnet_ids           = module.myVPC.subnet_ids
   env                  = var.env
 
