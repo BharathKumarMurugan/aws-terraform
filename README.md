@@ -15,6 +15,10 @@ Dynamically create number of Subnets based on the number of AZs in the given reg
 Create Lambda Function and trigger email using AWS SES | [Click Here](create-lambda-function)
 Create VPC on different environments using module | [Click Here](create-vpc-with-modules)
 Create a GitHub Repository | [Click Here](create-github-repo)
+Create an EC2 instance using JSON configuration | [Click Here](ec2-using-json-conf)
+Create a S3 bucket | [Click Here](s3)
+Create an Application Load Balancer | [Click Here](load-balancer)
+Create an Auto Scaling Group | [Click Here](autoscaling-group)
 
 
 ## Installation

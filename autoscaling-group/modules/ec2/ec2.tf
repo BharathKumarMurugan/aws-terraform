@@ -5,7 +5,7 @@ resource "aws_instance" "example" {
   subnet_id     = element(var.subnet_ids, count.index)
   # subnet_id              = var.subnet_ids
   vpc_security_group_ids = var.security_group_ids
-  user_data              = file("~/practice/aws-terraform/load-balancer/modules/ec2/install_apache.sh")
+  user_data              = file("./install_apache.sh")
   tags = {
     Name        = "ALB_ins-${count.index + 1}"
     Environment = var.env
