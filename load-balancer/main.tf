@@ -4,7 +4,7 @@ provider "aws" {
 
 # VPC module
 module "myVPC" {
-  source              = "../modules/vpc"
+  source              = "./modules/vpc"
   vpc_name            = "ALB_VPC_dev"
   igw_name            = "ALB_IGW_dev"
   rt_name             = "ALB_RT_dev"
@@ -18,7 +18,7 @@ module "myVPC" {
 
 # EC2 module
 module "myEC2" {
-  source        = "../modules/ec2"
+  source        = "./modules/ec2"
   ami           = "ami-0cda377a1b884a1bc"
   keyname       = "thor"
   instance_type = "t2.micro"
@@ -32,7 +32,7 @@ module "myEC2" {
 
 # Application Load Balancer
 module "myALB" {
-  source             = "../modules/alb"
+  source             = "./modules/alb"
   alb_name           = "ALB-dev"
   security_group_ids = module.myVPC.security_group_ids
   subnet_ids         = module.myVPC.subnet_ids
