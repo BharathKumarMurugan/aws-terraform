@@ -52,3 +52,6 @@ output "PublicIP_output_from_module" {
 output "SecGrpID_output_from_module" {
   value = module.myVPC.*.security_group_ids
 }
+output "LB_dns_name" {
+  value = module.myALB.alb_dns_name
+}
