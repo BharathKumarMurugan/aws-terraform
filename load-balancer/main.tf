@@ -34,7 +34,7 @@ module "myEC2" {
 module "myALB" {
   source             = "./modules/alb"
   alb_name           = "ALB-dev"
-  security_group_ids = module.myVPC.security_group_ids
+  security_group_ids = [module.myVPC.security_group_ids]
   subnet_ids         = module.myVPC.subnet_ids
   target_grp_name    = "ALB-target-grp-dev"
   vpc_id             = module.myVPC.vpc_id
