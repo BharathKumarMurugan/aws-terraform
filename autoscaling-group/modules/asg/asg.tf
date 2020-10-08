@@ -19,7 +19,7 @@ resource "aws_autoscaling_group" "example_ASG" {
   force_delete              = true
   placement_group           = aws_placement_group.examplePlacement.id
   launch_configuration      = aws_launch_configuration.exampleLaunchConfig.name
-  vpc_zone_identifier       = [var.subnet_ids]
+  vpc_zone_identifier       = var.subnet_ids
 
   tags = concat(
     [
