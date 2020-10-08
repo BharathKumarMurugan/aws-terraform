@@ -19,6 +19,7 @@ Create an EC2 instance using JSON configuration | [Click Here](ec2-using-json-co
 Create a S3 bucket | [Click Here](s3)
 Create an Application Load Balancer | [Click Here](load-balancer)
 Create an Auto Scaling Group | [Click Here](autoscaling-group)
+Store terraform state files in S3 bucket, encrypted | [Click Here](ec2-with-statefile-backup)
 
 
 ## Installation
