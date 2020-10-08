@@ -2,8 +2,8 @@ resource "aws_lb" "exampleALB" {
   name               = var.alb_name
   internal           = false         # making it as Internet Facing
   load_balancer_type = "application" # Application Load Balancer
-  security_groups    = var.security_group_ids
-  subnets            = var.subnet_ids
+  security_groups    = [var.security_group_ids]
+  subnets            = [var.subnet_ids]
 
   enable_deletion_protection = false
 
