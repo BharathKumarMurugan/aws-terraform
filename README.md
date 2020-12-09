@@ -21,6 +21,7 @@ Terraform templates for aws environment provisioning
 | Create an Auto Scaling Group                                                                                      | [Click Here](autoscaling-group)         |
 | Store terraform state files in S3 bucket, encrypted                                                               | [Click Here](ec2-with-statefile-backup) |
 | Configure a Systems Manager                                                                                       | [Click Here](ssm)                       |
+| Fetch list of all subnets attached to a VPC                                                                       | [Click Here](datasource-subnets)        |
 
 ## Installation
 
