@@ -1,5 +1,5 @@
 # VPC
-resource "aws_vpc" "examplevpc-" {
+resource "aws_vpc" "examplevpc" {
   cidr_block           = var.vpc_cidr
   instance_tenancy     = "default"
   enable_dns_support  = true
